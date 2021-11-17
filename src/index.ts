@@ -78,7 +78,8 @@ app.get('/personagem/:id', (req: Request, res: Response, next: NextFunction) => 
     const nomes: Array<any> = personagens.map(personagem => {
       return {
         nome: personagem.name,
-        id: personagem.id
+        id: personagem.id,
+        comics: personagem.comics.items
       }
     });
     const objRetorno = {
