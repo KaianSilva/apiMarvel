@@ -37,10 +37,11 @@ app.get('/personagem', (req: Request, res: Response, next: NextFunction) => {
   }).then((response => {
     const personagens: Array<any> = response.data.data.results;
     const nomes: Array<any> = personagens.map(personagem => {
-      return {
+      return  {
         nome: personagem.name,
-        id: personagem.id
-      }
+        id: personagem.id,
+        thumbnail: personagem.thumbnail
+      } 
     });
     const objRetorno = {
       page: page + 1,
@@ -79,7 +80,7 @@ app.get('/personagem/:id', (req: Request, res: Response, next: NextFunction) => 
       return {
         nome: personagem.name,
         id: personagem.id,
-        comics: personagem.comics.items
+        comics: personagem.comics.ites
       }
     });
     const objRetorno = {
