@@ -102,10 +102,10 @@ app.get('/personagem/:id', (req: Request, res: Response, next: NextFunction) => 
 
 
 
-app.get('/quadrinhos', (req: Request, res: Response, next: NextFunction) => {
+app.get('/quadrinhos/:character', (req: Request, res: Response, next: NextFunction) => {
   const page:number = Number(req.query.page) - 1;
   const limit:number = Number(req.query.limit);
-  const idChar:number = Number(req.query.character);
+  const idChar:number = Number(req.params.character);
   const ts = new Date().getTime().toString();
   const hash = md5(ts + privateKey + publicKey);
 
